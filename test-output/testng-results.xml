@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-03-12T13:10:34 IST" name="DemoQA Suite" finished-at="2025-03-12T13:12:31 IST" duration-ms="116544">
+    <groups>
+    </groups>
+    <test started-at="2025-03-12T13:10:34 IST" name="Automation Practice Form Test" finished-at="2025-03-12T13:10:51 IST" duration-ms="16630">
+      <class name="tests.AutomationPracticeFormTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.AutomationPracticeFormTest@587e5365]" started-at="2025-03-12T13:10:34 IST" name="setUp" finished-at="2025-03-12T13:10:48 IST" duration-ms="13921" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method signature="testFormSubmission()[pri:0, instance:tests.AutomationPracticeFormTest@587e5365]" started-at="2025-03-12T13:10:48 IST" name="testFormSubmission" finished-at="2025-03-12T13:10:49 IST" duration-ms="777" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFormSubmission -->
+        <test-method is-config="true" signature="startTest(java.lang.reflect.Method)[pri:0, instance:tests.AutomationPracticeFormTest@587e5365]" started-at="2025-03-12T13:10:48 IST" name="startTest" finished-at="2025-03-12T13:10:48 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.AutomationPracticeFormTest.testFormSubmission()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method is-config="true" signature="getTestResult(org.testng.ITestResult)[pri:0, instance:tests.AutomationPracticeFormTest@587e5365]" started-at="2025-03-12T13:10:49 IST" name="getTestResult" finished-at="2025-03-12T13:10:49 IST" duration-ms="4" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testFormSubmission status=SUCCESS method=AutomationPracticeFormTest.testFormSubmission()[pri:0, instance:tests.AutomationPracticeFormTest@587e5365] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestResult -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.AutomationPracticeFormTest@587e5365]" started-at="2025-03-12T13:10:49 IST" name="tearDown" finished-at="2025-03-12T13:10:51 IST" duration-ms="1879" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.AutomationPracticeFormTest -->
+    </test> <!-- Automation Practice Form Test -->
+    <test started-at="2025-03-12T13:10:51 IST" name="Excel Data Test" finished-at="2025-03-12T13:12:31 IST" duration-ms="99846">
+      <class name="tests.ExcelDataTest">
+        <test-method is-config="true" signature="setUp()[pri:0, instance:tests.ExcelDataTest@10d68fcd]" started-at="2025-03-12T13:10:51 IST" name="setUp" finished-at="2025-03-12T13:12:28 IST" duration-ms="96541" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method is-config="true" signature="startTest(java.lang.reflect.Method)[pri:0, instance:tests.ExcelDataTest@10d68fcd]" started-at="2025-03-12T13:12:28 IST" name="startTest" finished-at="2025-03-12T13:12:28 IST" duration-ms="0" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void tests.ExcelDataTest.testReadAndFillPatientForm()]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- startTest -->
+        <test-method signature="testReadAndFillPatientForm()[pri:0, instance:tests.ExcelDataTest@10d68fcd]" started-at="2025-03-12T13:12:28 IST" name="testReadAndFillPatientForm" finished-at="2025-03-12T13:12:29 IST" duration-ms="1635" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testReadAndFillPatientForm -->
+        <test-method is-config="true" signature="getTestResult(org.testng.ITestResult)[pri:0, instance:tests.ExcelDataTest@10d68fcd]" started-at="2025-03-12T13:12:29 IST" name="getTestResult" finished-at="2025-03-12T13:12:29 IST" duration-ms="3" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=testReadAndFillPatientForm status=SUCCESS method=ExcelDataTest.testReadAndFillPatientForm()[pri:0, instance:tests.ExcelDataTest@10d68fcd] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getTestResult -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:tests.ExcelDataTest@10d68fcd]" started-at="2025-03-12T13:12:29 IST" name="tearDown" finished-at="2025-03-12T13:12:31 IST" duration-ms="1656" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- tests.ExcelDataTest -->
+    </test> <!-- Excel Data Test -->
+  </suite> <!-- DemoQA Suite -->
+</testng-results>
