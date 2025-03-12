@@ -1,13 +1,7 @@
 name: Regression Tests
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch: # Allows manual trigger only
 
 jobs:
   regression-test:
