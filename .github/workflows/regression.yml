@@ -1,32 +1,41 @@
-name: Run Regression Suite
+name: Regression Tests
 
 on:
-  workflow_dispatch:  # Allows manual trigger
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
-  regression-suite:
-    runs-on: windows-latest  # Change to ubuntu-latest if needed
-
+  run-regression-tests:
+    runs-on: ubuntu-latest
+    
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Set up Java
+      - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Move regression.xml to resources
-        shell: pwsh
-        run: |
-          if (Test-Path "regression.xml") {
-            New-Item -ItemType Directory -Path "src/test/resources" -Force
-            Move-Item -Path "regression.xml" -Destination "src/test/resources/" -Force
-          } else {
-            Write-Host "regression.xml not found!"
-            exit 1
-          }
+      - name: Cache Maven Dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2
+          key: ${{ runner.os }}-maven-${{ hashFiles('/pom.xml') }}
+          restore-keys: ${{ runner.os }}-maven-
 
-      - name: Run Regression Suite with Maven
-        run: mvn clean test "-Dtestng.suiteXmlFiles=src/test/resources/regression.xml"
+      - name: Run Regression Suite
+        run: mvn test -DsuiteXmlFile=regression.xml
+
+      - name: Upload Test Reports
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: test-reports
+          path: test-output/
