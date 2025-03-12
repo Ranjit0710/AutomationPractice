@@ -1,11 +1,11 @@
 name: Run Regression Suite
 
 on:
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual trigger
 
 jobs:
   regression-suite:
-    runs-on: windows-latest
+    runs-on: windows-latest  # Change to ubuntu-latest if needed
 
     steps:
       - name: Checkout Repository
@@ -18,7 +18,15 @@ jobs:
           java-version: '11'
 
       - name: Move regression.xml to resources
-        run: mkdir -p src/test/resources && mv regression.xml src/test/resources/
+        shell: pwsh
+        run: |
+          if (Test-Path "regression.xml") {
+            New-Item -ItemType Directory -Path "src/test/resources" -Force
+            Move-Item -Path "regression.xml" -Destination "src/test/resources/" -Force
+          } else {
+            Write-Host "regression.xml not found!"
+            exit 1
+          }
 
-      - name: Build with Maven
+      - name: Run Regression Suite with Maven
         run: mvn clean test "-Dtestng.suiteXmlFiles=src/test/resources/regression.xml"
