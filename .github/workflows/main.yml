@@ -1,11 +1,8 @@
-
 name: CI Pipeline
 
 on:
-  push:
-    branches:
-      - main
-  workflow_dispatch:
+  workflow_dispatch:  # Allows manual execution only
+
 jobs:
   build:
     runs-on: windows-latest
@@ -57,7 +54,7 @@ jobs:
           server_address: smtp.gmail.com
           server_port: 587
           username: "ranjit.bachute@thinkitive.com"
-          password: ${{ secrets.EMAIL_PSSWORD }}  # Use the App Password stored in GitHub Secrets
+          password: ${{ secrets.EMAIL_PASSWORD }}  # Use the App Password stored in GitHub Secrets
           subject: "Automated Test Report - GitHub Actions"
           to: "gaikwadsainath738@gmail.com"
           from: "ranjit.bachute@thinkitive.com"
