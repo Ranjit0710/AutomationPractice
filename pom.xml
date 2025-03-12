@@ -54,7 +54,7 @@
         <profile>
             <id>regression</id>
             <properties>
-                <suiteXmlFile>regression.xml</suiteXmlFile>
+                <suiteXmlFile>src/test/resources/regression.xml</suiteXmlFile>
             </properties>
         </profile>
         <profile>
