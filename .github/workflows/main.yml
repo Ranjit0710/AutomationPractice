@@ -35,7 +35,7 @@ jobs:
         uses: actions/upload-artifact@v4  # Updated version
         with:
           name: extent-reports
-          path: reports/ExtentReports/
+          path: reports/
 
   send_email:
     needs: build
