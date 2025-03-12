@@ -17,6 +17,8 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
-      - name: Build with Maven
-        run: mvn clean test "-Dtestng.suiteXmlFiles=regression.xml"
+      - name: Move regression.xml to resources
+        run: mkdir -p src/test/resources && mv regression.xml src/test/resources/
 
+      - name: Build with Maven
+        run: mvn clean test "-Dtestng.suiteXmlFiles=src/test/resources/regression.xml"
