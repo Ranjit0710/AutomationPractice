@@ -1,41 +1,24 @@
 name: Regression Tests
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-  workflow_dispatch: # Allows manual triggering
+on: [push, pull_request]
 
 jobs:
-  run-regression-tests:
+  test:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - name: Set up JDK 11
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
           java-version: '11'
 
-      - name: Cache Maven Dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.m2
-          key: ${{ runner.os }}-maven-${{ hashFiles('/pom.xml') }}
-          restore-keys: ${{ runner.os }}-maven-
+      - name: Run tests
+        run: ./gradlew test
 
-      - name: Run Regression Suite
-        run: mvn test -DsuiteXmlFile=regression.xml
-
-      - name: Upload Test Reports
-        if: always()
-        uses: actions/upload-artifact@v3
+      - name: Upload test results
+        uses: actions/uploadThe job is failing because it uses a deprecated version-artifact@v4
         with:
-          name: test-reports
-          path: test-output/
+          name: test-results of `actions/upload-artifact: v3`. To resolve this
+          path: build/test-results
