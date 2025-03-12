@@ -1,24 +1,30 @@
 name: Regression Tests
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger
 
 jobs:
-  test:
+  regression-test:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '11'
+          distribution: 'temurin' # Use AdoptOpenJDK (or 'zulu'/'oracle')
+          java-version: '11'  # Set to your project's Java version
 
-      - name: Run tests
-        run: ./gradlew test
+      - name: Set up Maven
+        run: mvn -v
 
-      - name: Upload test results
-        uses: actions/uploadThe job is failing because it uses a deprecated version-artifact@v4
-        with:
-          name: test-results of `actions/upload-artifact: v3`. To resolve this
-          path: build/test-results
+      - name: Run Regression Tests
+        run: mvn test -Dsurefire.suiteXmlFiles=regression.xml
